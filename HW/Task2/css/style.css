@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+
+}
+
+.block1 {
+  width: 200px;
+  height: 150px;
+  display: inline-block;
+  /* border: 2px solid; */
+}
+
+.block2 {
+  display: block;
+
+}
+.block3 {
+  width: 1px;
+  height: 150px;
+  background-color: black;
+  display: inline-block;
+  position: absolute;
+  top:5px;
+  /* padding: 10px 0 0 0; */
+  /* margin: 10px 0 0 0; */
+}
+.img {
+  margin: 20px 70px 10px;
+}
+
+.topic {
+  color: orange;
+}
+
+.button {
+  width: 100px;
+  height: 30px;
+  background: orange;
+  padding: 5px 0 0 0;
+  margin: 5px 50px 5px;
+}
+
+/* .clearfix {
+  clear: both;
+} */
