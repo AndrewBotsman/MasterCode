@@ -2,22 +2,51 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font:
+  font-size: 10px;
 }
 
 body {
   position: relative;
 }
 
-.topPart {
+header {
   position: absolute;
-  height: 33vh;
+  z-index: 5;
+  color: white;
+  width: 100%;
+}
+
+nav {
+  position: absolute;
+  display: inline-flex;
+  flex-flow:row;
+  justify-content: flex-end;
+  /* width: 100vh; */
+  width: 100%;
+  margin-top: 15px;
+}
+
+@media screen and (min-width: 300px) {
+  .top-menu-img {
+    margin-right: 60%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .top-menu-img {
+    margin-right: 25%;
+  }
+}
+
+.top-part {
+  position: relative;
+  height: 495px;
   width: 100%;
   top: 0;
   background-color: #f74c55;
 }
 
-.topPart::after {
+.top-part::after {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -28,17 +57,172 @@ body {
   overflow: hidden;
 }
 
-.header {
-  position: absolute;
-  z-index: 5;
-  color: white;
-}
-
-/* .menu {
-  display: inline-flex;
-} */
-
 .topMenu {
+  font: 1.6em 'OpenSans Light';
   text-transform: uppercase;
-  margin-left: 30px;
+  margin: 15px 30px 0 0;
 }
+
+.top-menu--last {
+  margin-right: 15px;
+}
+
+.topMenu:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+main {
+  position: absolute;
+  display: flex;
+  height: 445px;
+  width: 100%;
+  top: 495px;
+  justify-content: center;
+}
+
+.content-topic {
+  position: relative;
+  font: 4em 'OpenSans Light';
+  top: 200px;
+  left: 65%;
+}
+
+.content-description {
+  position: relative;
+  font: 1.6em 'OpenSans Light';
+  top: 202px;
+  left: 65%;
+}
+
+.content-button {
+  position: relative;
+  font: 2.4em 'OpenSans Regular';
+  border: 2px solid white;
+  border-radius: 6px;
+  width: 150px;
+  top: 220px;
+  left: 65%;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.content-button:hover {
+  color: blue;
+  border-color: blue;
+  background-color: #fb636b;
+  cursor: pointer;
+}
+
+.main-header {
+  margin: 85px 85px 0 80px;
+  font: 3em 'OpenSans Light';
+}
+
+.main-p {
+  margin: 40px 85px 0 80px;
+  font: 1.6em 'OpenSans Light';
+}
+
+main>section>div {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  left: 90px;
+  top: 33vh;
+}
+
+.color1 {
+  background-color: #ee732f
+}
+.color2 {
+  left: 120px;
+  background-color: #f74c55
+}
+.color3 {
+  left: 150px;
+  background-color: #2d5f3b
+}
+.color4 {
+  left: 180px;
+  background-color: #404040
+}
+.color5 {
+  left: 210px;
+  background-color: #fb636b
+}
+
+footer {
+  position: absolute;
+  display: inline-flex;
+  height: 300px;
+  width: 100%;
+  top: calc(495px + 445px);
+  justify-content: center;
+
+}
+
+.article1 {
+  width: 33vh;
+  height: 100%;
+  background-color: #404040;
+}
+
+/* как расчитать правильную ширину для закраски полей? */
+.article1::after {
+  position: absolute;
+  width: calc(42% - 33vh);
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background-color: #404040;
+  content: '';
+}
+
+.article2 {
+  width: 360px;
+  height: 100%;
+  background-color: #fb636b;
+}
+
+.article3 {
+  width: 33vh;
+  height: 100%;
+  background-color: #2d5f3b;
+}
+
+.article3::after {
+  position: absolute;
+  width: calc(42% - 33vh);
+  height: 100%;
+  right: 0px;
+  top: 0px;
+  background-color: #2d5f3b;
+  content: '';
+}
+
+.article-img {
+  display: inline-flex;
+  margin: 30px 5px -20px 45px;
+}
+
+.article-h3 {
+  display: inline-flex;
+  margin: 15px 5px 0 15px;
+  font-size: 2.2em;
+}
+
+.article-descr {
+  margin: 30px 5px 0 45px;
+  font-size: 1.4em;
+}
+
+article:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+
+/* вопросы: */
+/* 1. Почему % размеров не отображаются также как vh? */
+/* 2. Сделать правильный круг  */
