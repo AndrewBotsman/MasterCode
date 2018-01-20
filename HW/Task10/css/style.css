@@ -170,15 +170,35 @@ main>section>div {
 
 footer>section {
   position: absolute;
-  display: inline-flex;
-  height: 300px;
-  width: 100%;
+  display: flex;
+  width: 1024px;
   top: calc(495px + 445px);
   justify-content: center;
+  background-color: #404040;
+  position: relative;
+}
 
+footer>section::before {
+  content: "";
+  display: block;
+  background-color: #2d5f3b;
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+}
+
+article h3 {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding-left: 43px;
+  font-weight: normal;
 }
 
 .article1 {
+  position: relative;
   width: 33vh;
   height: 100%;
   background-color: #404040;
