@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.block1 {
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  left: -155px;
+  border: 2px solid white;
+
+}
+
+.block2 {
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  border: 2px solid white;
+}
+
+.block3 {
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  left: 155px;
+  border: 2px solid white;
+}
+
+.date {
+  width: 100%;
+  height: 40px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  font-size: 3.5em;
+}
+
+.pic {
+  height: 100%;
+  width: 100%;
+}
+
+.n1 {
+  background: url('../img/weather-sun.jpg') center center no-repeat;
+}
+
+.n2 {
+  background: url('../img/weather-snow.jpg') center center no-repeat;
+}
+
+.n3 {
+  background: url('../img/weather-blizzard.jpg') center center no-repeat;
+}
+
+.temp {
+  width: 100%;
+  height: 40px;
+  color: black;
+  text-align: center;
+  font-size: 3.5em;
+}
