@@ -1,0 +1,73 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.firstPart {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  width: 1920px;
+  height: 1030px;
+  background: url('../img/Layer1.png');
+}
+
+.firstPart::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #1d232a;
+  opacity: 0.702;
+  content: '';
+}
+
+.firstPart--text {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fefefe;
+  font-size: 5em;
+}
+
+.secondPart {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 1030px;
+  width: 1920px;
+  height: 1030px;
+  background: #1d232a;
+}
+
+.nav1 {
+  position: absolute;
+  width: 100%; // measure common size form model
+  height: 100%;
+}
+
+.secondPart--text {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fefefe;
+  font-size: 5em;
+}
+
+.nav--firstPart {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  background: #fefefe;
+}
