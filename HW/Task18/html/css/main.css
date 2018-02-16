@@ -1,14 +1,16 @@
-body {
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-size: 10px;
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Open Sans", sans-serif;
+  color: #fefefe; }
 
 section {
   position: relative;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  background-color: #26292e; }
 
 .firstPart {
   position: absolute;
@@ -32,7 +34,6 @@ section {
   top: 50%;
   text-align: center;
   text-transform: uppercase;
-  color: #fefefe;
   font-size: 5em; }
 
 .secondPart {
@@ -54,11 +55,66 @@ section {
   top: 50%;
   text-align: center;
   text-transform: uppercase;
-  color: #fefefe;
   font-size: 5em; }
 
 .nav--firstPart {
   position: absolute;
   height: 50px;
   width: 100%;
-  background: #fefefe; }
+  background: #2f3238; }
+
+.nav-arrow {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  font-size: 5em;
+  text-align: center; }
+
+.nav-arrow-right {
+  background-color: #de5e60; }
+
+.nav-right {
+  position: absolute;
+  display: inline-block;
+  height: 50px;
+  width: 60px;
+  font-size: 5em;
+  vertical-align: baseline;
+  text-align: center;
+  right: 0; }
+
+.nav-point {
+  position: absolute;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  top: 25%; }
+
+.np1 {
+  background-color: #6e7074;
+  left: 47%; }
+
+.np2 {
+  background-color: #ffffff;
+  left: 50%; }
+
+.np3 {
+  background-color: #de5e60;
+  left: 53%; }
+
+.nav--menu {
+  position: absolute;
+  display: inline-block;
+  text-transform: uppercase;
+  top: 50px; }
+
+.nav--menu-logo {
+  display: inline-block;
+  font-size: 4em;
+  margin: 20px; }
+
+.nav--menu-items {
+  position: absolute;
+  display: inline-flex;
+  right: 0; }
