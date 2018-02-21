@@ -1,8 +1,10 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-  font-size: 10px;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
   color: #fefefe; }
 
@@ -81,6 +83,7 @@ section {
   font-size: 5em;
   vertical-align: baseline;
   text-align: center;
+  background-color: #26292e;
   right: 0; }
 
 .nav-point {
@@ -106,15 +109,18 @@ section {
 .nav--menu {
   position: absolute;
   display: inline-block;
+  flex-wrap: nowrap;
   text-transform: uppercase;
   top: 50px; }
 
 .nav--menu-logo {
-  display: inline-block;
   font-size: 4em;
   margin: 20px; }
 
 .nav--menu-items {
-  position: absolute;
-  display: inline-flex;
-  right: 0; }
+  display: inline;
+  list-style: none; }
+
+.nav--menu-item {
+  align-self: flex-end;
+  font-size: 4em; }
