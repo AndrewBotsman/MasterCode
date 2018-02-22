@@ -54,12 +54,15 @@ section {
   height: 100%; }
 
 .secondPart--h2-text {
+  position: absolute;
+  top: 15%;
+  left: 50%;
   font-size: 3em; }
 
 .secondPart--text {
   position: absolute;
-  top: 50%;
-  text-align: center;
+  top: 20%;
+  left: 50%;
   font-size: 5em; }
 
 .nav--firstPart {
@@ -132,3 +135,144 @@ section {
 .nav--menu-item {
   font-size: 3em;
   margin-left: 50px; }
+
+.secondPart--main-content {
+  width: 100%;
+  height: 100%; }
+
+.secondPart--box {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  background-color: #26292e; }
+
+.box1 {
+  top: 300px;
+  left: 550px; }
+
+.box2 {
+  top: 550px;
+  left: 850px;
+  background-color: #de5e60; }
+
+.box3 {
+  top: 300px;
+  left: 1150px; }
+
+.box4 {
+  top: 800px;
+  left: 550px; }
+
+.box5 {
+  top: 800px;
+  left: 1150px; }
+
+.thirdPart {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 2060px;
+  width: 1920px;
+  height: 1030px;
+  background: #26292e; }
+
+.thirdPart--main-content {
+  width: 100%;
+  height: 100%; }
+
+.thirdPart--h2-text {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  font-size: 4em; }
+
+.thirdPart--text {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  font-size: 3em; }
+
+.thirdPart--box {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  background-color: #2f3238; }
+
+.box21 {
+  top: 300px;
+  left: 550px; }
+
+.box22 {
+  top: 300px;
+  left: 850px;
+  background-color: #de5e60; }
+
+.box-text {
+  position: absolute;
+  left: 60px;
+  top: 85px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2em; }
+
+.box23 {
+  top: 300px;
+  left: 1150px; }
+
+.thirdPart--header {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  top: 550px;
+  font-size: 2em; }
+
+.first-name {
+  left: 550px; }
+
+.second-name {
+  left: 850px; }
+
+.third-name {
+  left: 1150px; }
+
+.thirdPart--descr {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  top: 600px; }
+
+.thirdPart-bottom {
+  position: absolute;
+  height: 170px;
+  width: 700px;
+  top: 800px;
+  left: 550px;
+  border-left: 4px solid;
+  border-color: #de5e60;
+  padding: 20px; }
+
+.thirdPart-bottom--header {
+  text-transform: uppercase;
+  font-size: 2.5em; }
+
+.thirdPart-bottom--header-colored-part {
+  color: #de5e60; }
+
+.thirdPart-bottom--text {
+  font-size: 1.4em;
+  color: #6e7074; }
+
+.thirdPart--button {
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  top: 55px;
+  left: 750px;
+  background-color: #2f3238; }
+
+.thirdPart--button-text {
+  position: absolute;
+  top: 7px;
+  left: 15px;
+  text-transform: uppercase;
+  font-size: 1.5em; }
