@@ -6,7 +6,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Titillium Web", sans-serif;
   color: #fefefe;
 }
 
@@ -39,9 +39,11 @@ section {
 .firstPart--text {
   position: absolute;
   top: 50%;
+  //left: calc(50% - (10*10px));
   text-align: center;
   text-transform: uppercase;
-  font-size: 5em;
+  font-size: 10em;
+  z-index: 1;
 }
 
 .secondPart {
@@ -51,7 +53,7 @@ section {
   top: 1030px;
   width: 1920px;
   height: 1030px;
-  background: #1d232a;
+  background: #2f3238;
 }
 
 .nav1 {
@@ -60,12 +62,18 @@ section {
   height: 100%;
 }
 
+.secondPart--h2-text {
+  font-size: 3em;
+
+}
+
 .secondPart--text {
   position: absolute;
   top: 50%;
   text-align: center;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   font-size: 5em;
+
 }
 
 .nav--firstPart {
@@ -79,6 +87,7 @@ section {
   display: inline-block;
   height: 50px;
   width: 50px;
+  font-family: sans-serif;
   font-size: 5em;
   text-align: center;
 }
@@ -92,6 +101,7 @@ section {
   display: inline-block;
   height: 50px;
   width: 60px;
+  font-family: sans-serif;
   font-size: 5em;
   vertical-align: baseline;
   text-align: center;
@@ -125,24 +135,27 @@ section {
 
 .nav--menu {
   position: absolute;
-  display: inline-block; // use flex-box
-  flex-wrap: nowrap;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   text-transform: uppercase;
   top: 50px;
+  background-color: #26292e;
 }
 
 .nav--menu-logo {
-  font-size: 4em;
+  font-size: 3em;
   margin: 20px;
 }
 
 .nav--menu-items {
-  display: inline;
+  display: inline-flex;
   list-style: none;
+  margin: 20px;
 
 }
 
 .nav--menu-item {
-  align-self: flex-end;
-  font-size: 4em;
+  font-size: 3em;
+  margin-left: 50px;
 }
