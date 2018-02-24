@@ -8,17 +8,31 @@ html {
   font-family: "Roboto", sans-serif;
   color: #666666; }
 
-.img {
+.topic {
+  margin: 10px;
+  font-family: "Pattaya", sans-serif;
+  font-size: 6em;
+  text-align: center; }
+
+.img1 {
   display: inline-block;
-  width: 280px;
+  width: 295px;
   height: 320px;
   background: url("../img/Layer1.png");
   background-repeat: no-repeat;
-  background-size: 280px 320px; }
+  background-size: 295px 320px; }
 
-.descrition {
+.img2 {
   display: inline-block;
-  width: 280px;
+  width: 295px;
+  height: 320px;
+  background: url("../img/Layer2.png");
+  background-repeat: no-repeat;
+  background-size: 295px 320px; }
+
+.description {
+  display: inline-block;
+  width: 250px;
   height: 320px; }
 
 .header {
