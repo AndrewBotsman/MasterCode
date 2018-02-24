@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+  color: #666666; }
+
+.img {
+  display: inline-block;
+  width: 280px;
+  height: 320px;
+  background: url("../img/Layer1.png");
+  background-repeat: no-repeat;
+  background-size: 280px 320px; }
+
+.descrition {
+  display: inline-block;
+  width: 280px;
+  height: 320px; }
+
+.header {
+  width: 100% auto;
+  height: 50% auto;
+  font-size: 2.4em;
+  color: #00ada5; }
+
+.plan-text {
+  width: 100% auto;
+  height: 50% auto;
+  font-size: 1.6em; }

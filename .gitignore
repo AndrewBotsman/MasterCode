@@ -1,3 +1,5 @@
 *.[oa]
-HW/Task18/node_modules/
 HW/Task18/*.json
+HW/Task18/node_modules/
+HW/Task21/*.json
+HW/Task21/node_modules/
