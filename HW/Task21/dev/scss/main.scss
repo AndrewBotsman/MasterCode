@@ -8,6 +8,21 @@
   text-align: center;
 }
 
+img {
+  // display: inline-block;
+  width: 150px;
+  height: 170px;
+  background-repeat: no-repeat;
+  background-size: 295px 170px;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+  // width: 250px;
+  // height: 320px;
+}
+
 .img1 {
   display: inline-block;
   width: 295px;
@@ -28,11 +43,12 @@
 
 .description {
   display: inline-block;
-  width: 250px;
-  height: 320px;
+  width: 150px;
+  height: 170px;
 }
 
 .header {
+  display: inline-block;
   width: 100% auto;
   height: 50% auto;
   font-size: 2.4em;

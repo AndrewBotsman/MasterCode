@@ -1,0 +1,76 @@
+-
+  var data = {
+    header:'Статьи',
+      items : [
+        {
+          img:'../img/Layer1.png',
+          header: 'Таблица размеров детских колгот',
+          description: 'В этой статье мы опишем как правильно снять размеры для правильного подбора детских колгот'
+        },
+        {
+          img:'',
+          header: 'Актуальные вопросы: можно ли постирать коляску и как правильно это сделать?',
+          description: 'empty plan text'
+        },
+        {
+          img:'',
+          header: 'Полезно или вредно? Какие игрушки стоит выбирать?',
+          description: 'empty plan text'
+        },
+        {
+          img:'',
+          header: 'Лучшие игрушки и игры для развития моторики',
+          description: 'empty plan text'
+        },
+        {
+          img:'../img/Layer2.png',
+          header: 'Подарок имениннику на 9 лет',
+          description: 'В этой статье мы опишем как правильно снять размеры для правильного подбора детских колгот'
+        },
+        {
+          img:'',
+          header: 'Рейтинг самых популярных игрушек 2016 года',
+          description: 'empty plan text'
+        }
+      ]
+    }
+
+mixin component(item)
+  .row
+    if item.img
+      .col-md-6
+        img(src=item.img)
+      .description.col-md-6
+        if item.header
+          h2.header=item.header
+        if item.description
+          p.description=item.description
+    else
+      .description
+        if item.header
+          h2.header=item.header
+        if item.description
+          p.description=item.description
+
+mixin topic(data)
+    .topic #{data.header}
+
+mixin template()
+    .container
+      +topic(data)
+      .row
+        - var count = 0;
+        for val in data.items
+          - count++;
+          if count == 2
+            article.col-md-4.bg-danger
+              +component(val)
+          else if count == 4
+            article.col-md-4.bg-success
+              +component(val)
+          else if count == 6
+            article.col-md-4.bg-danger
+              +component(val)
+          else
+            article.col-md-4
+              +component(val)

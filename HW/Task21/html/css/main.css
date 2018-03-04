@@ -14,6 +14,16 @@ html {
   font-size: 6em;
   text-align: center; }
 
+img {
+  width: 150px;
+  height: 170px;
+  background-repeat: no-repeat;
+  background-size: 295px 170px; }
+
+article {
+  display: flex;
+  justify-content: center; }
+
 .img1 {
   display: inline-block;
   width: 295px;
@@ -32,10 +42,11 @@ html {
 
 .description {
   display: inline-block;
-  width: 250px;
-  height: 320px; }
+  width: 150px;
+  height: 170px; }
 
 .header {
+  display: inline-block;
   width: 100% auto;
   height: 50% auto;
   font-size: 2.4em;
