@@ -1,37 +1,40 @@
 doctype html
 
 include  components/_head.pug
+include  components/_component.pug
 
 html
   head
   body
-    .topic Статьи
     .container
-      .row
-        .col-md-4.bg-success
-          .img1
-          .description
-            .header Таблица размеров детских колгот
-            .plan-text В этой статье мы опишем как правильно снять размеры для правильного подбора детских колгот
-        .col-md-4.bg-warning
-          .description
-            .header Актуальные вопросы: можно ли постирать коляску и как правильно это сделать?
-            .plan-text empty plan text
-        .col-md-4.bg-danger
-          .description
-            .header Полезно или вредно? Какие игрушки стоит выбирать?
-            .plan-text empty plan text
-      .row
-        .col-md-4.bg-warning
-          .description
-            .header Лучшие игрушки и игры для развития моторики
-            .plan-text empty plan text
-        .col-md-4.bg-danger
-          .description
-            .img2
-            .header Подарок имениннику на 9 лет
-            .plan-text В этой статье мы опишем как правильно снять размеры для правильного подбора детских колгот
-        .col-md-4.bg-success
-          .description
-            .header Рейтинг самых популярных игрушек 2016 года
-            .plan-text empty plan text
+      +template
+    //.topic Статьи
+    //.container
+    //  .row
+    //    .col-md-4.bg-success
+    //      .img1
+    //      .description
+    //        .header Таблица размеров детских колгот
+    //        .plan-text В этой статье мы опишем как правильно снять размеры для правильного подбора детских колгот
+    //    .col-md-4.bg-warning
+    //      .description
+    //        .header Актуальные вопросы: можно ли постирать коляску и как правильно это сделать?
+    //        .plan-text empty plan text
+    //    .col-md-4.bg-danger
+    //      .description
+    //        .header Полезно или вредно? Какие игрушки стоит выбирать?
+    //        .plan-text empty plan text
+    //  .row
+    //    .col-md-4.bg-warning
+    //      .description
+    //        .header Лучшие игрушки и игры для развития моторики
+    //        .plan-text empty plan text
+    //    .col-md-4.bg-danger
+    //      .description
+    //        .img2
+    //        .header Подарок имениннику на 9 лет
+    //        .plan-text В этой статье мы опишем как правильно снять размеры для правильного подбора детских колгот
+    //    .col-md-4.bg-success
+    //      .description
+    //        .header Рейтинг самых популярных игрушек 2016 года
+    //        .plan-text empty plan text
