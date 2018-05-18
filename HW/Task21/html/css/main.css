@@ -41,12 +41,10 @@ article {
   background-size: 295px 320px; }
 
 .description {
-  display: inline-block;
   width: 150px;
   height: 170px; }
 
 .header {
-  display: inline-block;
   width: 100% auto;
   height: 50% auto;
   font-size: 2.4em;
