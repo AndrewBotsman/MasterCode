@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataFetcher } from './data-fetcher.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  testData: string;
+
+  constructor(private _dataFetcherService: DataFetcher) {
+
+  }
+
+  ngOnInit() {
+    this.testData = this._dataFetcherService.GetEvent();
+  }
+
+  appName = 'Дневник';
+  listName = 'Список';
+  createName = 'Добавить';
+  mapName = 'Карта';
 }
