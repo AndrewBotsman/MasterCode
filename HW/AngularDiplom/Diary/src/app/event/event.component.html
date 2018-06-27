@@ -1,3 +1,79 @@
-<p>
-  event works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <label for="eventNameInput">{{eventNameLabel}}</label>
+    </div>
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <input id="eventNameInput" placeholder="{{eventNameInputPlaceholder}}">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <label for="eventDescriptionTextarea">{{eventDescriptionTextareaLabel}}</label>
+    </div>
+
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <textarea id="eventDescriptionTextarea" placeholder="{{eventDescriptionTextareaLabel}}"></textarea>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <label for="eventDateInput">{{eventDateInputLabel}}</label>
+    </div>
+
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <input type="date" id="eventDateInput">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <label for="eventOpinionLabel">{{eventOpinionLabel}}</label>
+    </div>
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <input id="eventOpinionPositiveCase" type="radio" checked>{{eventOpinionPositive}}
+      <br>
+      <input id="eventOpinionNeutraleCase" type="radio">{{eventOpinionNeutrale}}
+      <br>
+      <input id="eventOpinionNegativeCase" type="radio">{{eventOpinionNegative}}
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <label for="eventPhotoRefInput">{{eventPhotoRefLabel}}</label>
+    </div>
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <input type="text" id="eventPhotoRefInput">
+      <button id="eventPhotoRefButton" class="btn btn-primary" style="margin-left: 5px;" (click)="showPhoto()">{{eventShowButtonName}}</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <label for="eventVideoRefInput">{{eventVideooRefLabel}}</label>
+    </div>
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <input type="text" id="eventVideoRefInput">
+      <button id="eventVideoRefButton" class="btn btn-primary"  style="margin-left: 5px;" (click)="showVideo()">{{eventShowButtonName}}</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <label for="eventMapArea">{{eventMapAreaLabel}}</label>
+    </div>
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <app-places></app-places>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-lg-4 col-md-2 col-sm-2"></div>
+      <div class="col-lg-4 col-md-2 col-sm-2">
+        <button id="eventSubmitButton" class="btn btn-primary" (click)="showVideo()">{{eventSubmitButtonName}}</button>
+      </div>
+    </div>
+  </div>

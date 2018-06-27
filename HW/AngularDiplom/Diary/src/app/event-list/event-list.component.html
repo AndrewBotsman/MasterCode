@@ -1,3 +1,17 @@
-<p>
-  event-list works!
-</p>
+<input placeholder="{{searchName}}">
+<mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="eventName">
+        <mat-header-cell *matHeaderCellDef>{{eventName}}</mat-header-cell>
+        <mat-cell *matCellDef="let event">Test eventName</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="eventDate">
+        <mat-header-cell *matHeaderCellDef>{{eventDateName}}</mat-header-cell>
+        <mat-cell *matCellDef="let event">Test eventDate</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+</mat-table>
+<div *ngIf="empty">No results</div>
+<br>
+<button class="btn btn-primary" (click)="removeEvents()">{{clearEventsbuttonName}}</button>

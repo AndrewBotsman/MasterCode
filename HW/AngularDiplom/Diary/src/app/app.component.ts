@@ -7,14 +7,14 @@ import { DataFetcher } from './data-fetcher.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  testData: string;
+  testData: Array<string> = [];
 
   constructor(private _dataFetcherService: DataFetcher) {
 
   }
 
   ngOnInit() {
-    this.testData = this._dataFetcherService.GetEvent();
+    this.testData = this._dataFetcherService.getAllEvents();
   }
 
   appName = 'Дневник';
