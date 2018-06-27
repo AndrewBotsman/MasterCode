@@ -13,8 +13,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlacesComponent implements OnInit {
   // initial center position for the map
-  lat: number = 49.988358;
-  lng: number = 36.232845;
+  private lat: number = 49.988358;
+  private lng: number = 36.232845;
+
+  storedLat: number;
+  storedLng: number;
 
   // google maps zoom level
   zoom: number = 8;
@@ -26,13 +29,13 @@ export class PlacesComponent implements OnInit {
 
 
   clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
+    console.log(`clicked the marker: ${label || index}`);
   }
 
   mapClicked($event: MouseEvent) {
-    // this.markers.push({
-    //   lat: $event.coords.lat,
-    //   lng: $event.coords.lng
-    // });
+    console.log($event);
+
+    this.storedLat = $event.coords.lat;
+    this.storedLng = $event.coords.lat;
   }
 }

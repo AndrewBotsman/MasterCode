@@ -4,7 +4,7 @@
       <label for="eventNameInput">{{eventNameLabel}}</label>
     </div>
     <div class="col-lg-4 col-md-2 col-sm-2">
-      <input id="eventNameInput" placeholder="{{eventNameInputPlaceholder}}">
+      <input id="eventNameInput" placeholder="{{eventNameInputPlaceholder}}" value="{{eventNameInput}}">
     </div>
   </div>
   <br>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="col-lg-4 col-md-2 col-sm-2">
-      <textarea id="eventDescriptionTextarea" placeholder="{{eventDescriptionTextareaLabel}}"></textarea>
+      <textarea id="eventDescriptionTextarea" placeholder="{{eventDescriptionTextareaLabel}}">{{eventDescriptionTextarea}}</textarea>
     </div>
   </div>
   <br>
@@ -24,20 +24,20 @@
     </div>
 
     <div class="col-lg-4 col-md-2 col-sm-2">
-      <input type="date" id="eventDateInput">
+      <input type="date" id="eventDateInput" value="{{eventDateInput}}">
     </div>
   </div>
   <br>
   <div class="row">
     <div class="col-lg-4 col-md-2 col-sm-2">
-      <label for="eventOpinionLabel">{{eventOpinionLabel}}</label>
+      <label for="eventOpinionLabel">{{eventOpinionLabel}} </label>
     </div>
     <div class="col-lg-4 col-md-2 col-sm-2">
-      <input id="eventOpinionPositiveCase" type="radio" checked>{{eventOpinionPositive}}
+      <input id="eventOpinionPositiveCase" type="radio" (change)="opinionChanged($event)" checked>{{eventOpinionPositive}}
       <br>
-      <input id="eventOpinionNeutraleCase" type="radio">{{eventOpinionNeutrale}}
+      <input id="eventOpinionNeutraleCase" type="radio" (change)="opinionChanged($event)">{{eventOpinionNeutrale}}
       <br>
-      <input id="eventOpinionNegativeCase" type="radio">{{eventOpinionNegative}}
+      <input id="eventOpinionNegativeCase" type="radio" (change)="opinionChanged($event)">{{eventOpinionNegative}}
     </div>
   </div>
   <br>
@@ -46,7 +46,7 @@
       <label for="eventPhotoRefInput">{{eventPhotoRefLabel}}</label>
     </div>
     <div class="col-lg-4 col-md-2 col-sm-2">
-      <input type="text" id="eventPhotoRefInput">
+      <input type="text" id="eventPhotoRefInput" value="{{eventPhotoRefInput}}">
       <button id="eventPhotoRefButton" class="btn btn-primary" style="margin-left: 5px;" (click)="showPhoto()">{{eventShowButtonName}}</button>
     </div>
   </div>
@@ -56,8 +56,8 @@
       <label for="eventVideoRefInput">{{eventVideooRefLabel}}</label>
     </div>
     <div class="col-lg-4 col-md-2 col-sm-2">
-      <input type="text" id="eventVideoRefInput">
-      <button id="eventVideoRefButton" class="btn btn-primary"  style="margin-left: 5px;" (click)="showVideo()">{{eventShowButtonName}}</button>
+      <input type="text" id="eventVideoRefInput" value="{{eventVideoRefInput}}">
+      <button id="eventVideoRefButton" class="btn btn-primary" style="margin-left: 5px;" (click)="showVideo()">{{eventShowButtonName}}</button>
     </div>
   </div>
   <br>
@@ -71,9 +71,9 @@
   </div>
   <br>
   <div class="row">
-      <div class="col-lg-4 col-md-2 col-sm-2"></div>
-      <div class="col-lg-4 col-md-2 col-sm-2">
-        <button id="eventSubmitButton" class="btn btn-primary" (click)="showVideo()">{{eventSubmitButtonName}}</button>
-      </div>
+    <div class="col-lg-4 col-md-2 col-sm-2"></div>
+    <div class="col-lg-4 col-md-2 col-sm-2">
+      <button id="eventSubmitButton" class="btn btn-primary" (click)="submit()">{{eventSubmitButtonName}}</button>
     </div>
   </div>
+</div>

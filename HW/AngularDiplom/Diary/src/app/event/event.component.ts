@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventClass } from '../app.module';
 
 @Component({
   selector: 'app-event',
@@ -11,7 +12,15 @@ import { Component, OnInit } from '@angular/core';
     }
   `]
 })
+
 export class EventComponent implements OnInit {
+
+  eventNameInput: string;
+  eventDescriptionTextarea: string;
+  eventDateInput: string;
+  eventOpinion: string;
+  eventPhotoRefInput: string;
+  eventVideoRefInput: string;
 
   eventNameInputPlaceholder = 'Название события';
   eventNameLabel = 'Введите название события:';
@@ -40,5 +49,23 @@ export class EventComponent implements OnInit {
 
   showVideo(): void {
     console.log('Video displyed!');
+  }
+
+  opinionChanged(e): void {
+    if (e.target.checked) {
+      this.eventOpinion = e.target.id;
+    }
+  }
+
+  submit(): void {
+    const eventObj = new EventClass(
+      this.eventNameInput,
+      this.eventDescriptionTextarea,
+      this.eventDateInput,
+      this.eventOpinion,
+      this.eventPhotoRefInput,
+      this.eventVideoRefInput,
+      ['48.988358', '35.232845']);
+    eventObj.SaveEvent('-1');
   }
 }
