@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EventModel } from '../event-model';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 // import { switchMap } from 'rxjs/operators';
 import { DataFetcher } from '../data-fetcher.service';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-event',
@@ -29,16 +30,6 @@ export class EventComponent implements OnInit {
     eventMap: new FormControl(),
   });
 
-  // eventModel = new EventModel();
-  // eventObject = new FormControl();
-  // eventName: string;
-  // eventDescription: string;
-  // eventDate: string;
-  // eventOpinion: string;
-  // eventPhotoRef: string;
-  // eventVideoRef: string;
-  // eventOpinons = new eventOpinions();
-
   eventNameInputPlaceholder = 'Название события';
   createEventFormName = 'Создание нового события';
   eventNameLabel = 'Введите название события:';
@@ -58,12 +49,14 @@ export class EventComponent implements OnInit {
   lng: number = 36.232845;
   showDialog = false;
   eventRef = '';
+  type = '';
   private _eventId = '-1';
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: DataFetcher
+    private service: DataFetcher,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -73,8 +66,10 @@ export class EventComponent implements OnInit {
   getUrl(id: string) {
     if (id === '' || id === undefined) {
     } else if (id === 'eventPhotoRef') {
+      this.type = 'photo';
       this.eventRef = this.eventForm.controls.eventPhotoRef.value;
     } else {
+      this.type = 'video';
       this.eventRef = this.eventForm.controls.eventVideoRef.value;
     }
   }
@@ -82,7 +77,7 @@ export class EventComponent implements OnInit {
     this.getUrl(id);
     console.log(id);
     console.log(this.eventRef);
-    
+
     this.showDialog = !(this.showDialog);
   }
   OutputCoords(coords: Array<string>) {
@@ -128,4 +123,12 @@ export class EventComponent implements OnInit {
 
 
   // get eventPhotoRef() {return this.eventForm.get('eventPhotoRef')}
+}
+
+@Component({
+  selector: 'dialog-image-data',
+  templateUrl: 'dialog-image-data.html',
+})
+export class DialogImageData {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 }

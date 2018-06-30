@@ -124,15 +124,9 @@
           <label for="eventPhotoRef">{{eventPhotoRefLabel}}</label>
         </div>
         <input id="eventPhotoRef" formControlName="eventPhotoRef">
-        <button id="eventPhotoRefButton" (click)="displayDialog('eventPhotoRef')" class="btn btn-primary" style="margin-left: 5px;">{{eventShowButtonName}}</button>
+        <button mat-button id="eventPhotoRefButton" (click)="displayDialog('eventPhotoRef')" class="btn btn-primary" style="margin-left: 5px;">{{eventShowButtonName}}</button>
 
-        <app-dialog [(visible)]="showDialog" [(url)]="eventRef">
-          <h1>Просмотр</h1>
-          <div class="col-sm-2">
-            <img class="col-sm-2" src="{{eventRef}}" class="img-responsive img-circle">
-          </div>
-          <button (click)="displayDialog()" class="btn btn-primary">Закрыть</button>
-        </app-dialog>
+        <app-dialog [(visible)]="showDialog" [(url)]="eventRef" [(type)]="type"></app-dialog>
       </div>
       <div class="form-group">
         <div>
@@ -141,14 +135,7 @@
         <input id="eventVideoRef" formControlName="eventVideoRef">
         <button id="eventVideoRefButton" (click)="displayDialog('eventVideoRef')" class="btn btn-primary" style="margin-left: 5px;">{{eventShowButtonName}}</button>
 
-        <app-dialog [(visible)]="showDialog" [(url)]="eventRef">
-          <h1>Просмотр</h1>
-          <video width="400" controls>
-            <source src="{{eventRef}}" type="video/mp4">
-            <source src="{{eventRef}}" type="video/ogg"> Your browser does not support HTML5 video.
-          </video>
-          <button (click)="displayDialog()" class="btn btn-primary">Закрыть</button>
-        </app-dialog>
+        <app-dialog [(visible)]="showDialog" [(url)]="eventRef" [(type)]="type"></app-dialog>
       </div>
       <div class="form-group">
         <app-places [(inputCoords)]="inputCoords"></app-places>

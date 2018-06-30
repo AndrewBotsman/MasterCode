@@ -1,5 +1,17 @@
 <div [@dialog] *ngIf="visible" class="dialog">
-  <ng-content></ng-content>
+  <div *ngIf="type === 'photo'">
+    <h1>Просмотр фото</h1>
+    <img class="col-sm-2" src="{{url}}" class="img-responsive img-circle">
+  </div>
+  <div *ngIf="type === 'video'">
+    <h1>Просмотр видео</h1>
+    <video width="400" controls>
+      <source src="{{url}}" type="video/mp4">
+      <source src="{{url}}" type="video/mov">
+      <source src="{{url}}" type="video/ogg"> Your browser does not support HTML5 video.
+    </video>
+  </div>
+  <button (click)="close()" class="btn btn-primary">Закрыть</button>
   <div>{{url}}</div>
   <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">X</button>
 </div>
