@@ -13,7 +13,7 @@ export class DataFetcher {
       let items: Array<string> = [];
       for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
-        const value = localStorage.getItem(key);
+        const value = JSON.parse(localStorage.getItem(key));
         console.log(key, value);
         items.push(value);
       }

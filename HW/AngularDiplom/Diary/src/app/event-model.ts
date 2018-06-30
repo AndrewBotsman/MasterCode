@@ -1,6 +1,8 @@
 import { DataFetcher } from './data-fetcher.service';
+import { UUID } from 'angular2-uuid';
 
 export class EventModel {
+    eventId = '';
     eventName = '';
     eventDescription = '';
     eventDate = '';
@@ -11,6 +13,7 @@ export class EventModel {
     private _service = new DataFetcher();
 
     constructor(
+        eventId: string,
         eventName: string,
         eventDescription: string,
         eventDate: string,
@@ -18,7 +21,8 @@ export class EventModel {
         eventPhotoRef: string,
         eventVideoRef: string,
         eventMap: Array<string>
-        ) {
+    ) {
+        this.eventId = eventId;
         this.eventName = eventName;
         this.eventDescription = eventDescription;
         this.eventDate = eventDate;
@@ -30,6 +34,7 @@ export class EventModel {
 
     PrepareObjectToStore(): any {
         return {
+            'eventId': this.eventId,
             'eventName': this.eventName,
             'eventDescription': this.eventDescription,
             'eventDate': this.eventDate,
@@ -41,34 +46,41 @@ export class EventModel {
     }
 
     PrepareObjectFromStore(storedEvent: EventModel): void {
-        this.eventName = storedEvent.eventName;
-        this.eventDescription = storedEvent.eventDescription;
-        this.eventDate = storedEvent.eventDate;
-        this.eventOpinion = storedEvent.eventOpinion;
-        this.eventPhotoRef = storedEvent.eventPhotoRef;
-        this.eventVideoRef = storedEvent.eventVideoRef;
-        this.eventMap = storedEvent.eventMap;
+        this.eventId = storedEvent.eventId === null ? '-1' : storedEvent.eventId;
+        this.eventName = storedEvent.eventName === null ? '' : storedEvent.eventName;
+        this.eventDescription = storedEvent.eventDescription === null ? '' : storedEvent.eventDescription;
+        this.eventDate = storedEvent.eventDate === null ? '' : storedEvent.eventDate;
+        this.eventOpinion = storedEvent.eventOpinion === null ? '' : storedEvent.eventOpinion;
+        this.eventPhotoRef = storedEvent.eventPhotoRef === null ? '' : storedEvent.eventPhotoRef;
+        this.eventVideoRef = storedEvent.eventVideoRef === null ? '' : storedEvent.eventVideoRef;
+        this.eventMap = storedEvent.eventMap === null ? ['', ''] : storedEvent.eventMap;
     }
 
-    GetEvent(id: string): any {
+    GetEvent(id: string): EventModel {
         const event = this._service.getEvent(id);
         console.log(event);
-        return this.PrepareObjectFromStore(JSON.parse(event));
+        this.PrepareObjectFromStore(event);
+        return new EventModel(
+            this.eventId,
+            this.eventName,
+            this.eventDescription,
+            this.eventDate,
+            this.eventOpinion,
+            this.eventPhotoRef,
+            this.eventVideoRef,
+            this.eventMap
+        );
     }
 
     SaveEvent(id: string): void {
+        if (id === '-1' || id === null) {
+            const uuid = UUID.UUID();
+            this.eventId = '' + uuid;
+        }
+
         const value = this.PrepareObjectToStore();
         console.log(value);
-
-        if (id === '-1' || id === null) {
-            console.log(this._service);
-            console.log(this.GetAllEvents());
-
-            const count: number = this.GetAllEvents() === undefined ? 0 : this.GetAllEvents().length;
-            this._service.saveEvent('' + count, value);
-        } else {
-            this._service.saveEvent(id, value);
-        }
+        this._service.saveEvent(this.eventId, value);
     }
 
     GetAllEvents(): any {

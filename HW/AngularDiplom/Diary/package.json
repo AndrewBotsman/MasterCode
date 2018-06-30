@@ -28,6 +28,7 @@
     "angular2": "^2.0.0-beta.21",
     "angular2-google-map": "^0.1.8",
     "angular2-google-maps": "^0.17.0",
+    "angular2-uuid": "^1.1.1",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"

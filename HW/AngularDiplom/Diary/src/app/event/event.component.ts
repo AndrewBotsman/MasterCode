@@ -2,9 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EventModel } from '../event-model';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-// import { switchMap } from 'rxjs/operators';
 import { DataFetcher } from '../data-fetcher.service';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-event',
@@ -31,7 +29,7 @@ export class EventComponent implements OnInit {
   });
 
   eventNameInputPlaceholder = 'Название события';
-  createEventFormName = 'Создание нового события';
+  eventFormName = 'Создание нового события';
   eventNameLabel = 'Введите название события:';
   eventDescriptionLabel = 'Описание:';
   eventDateInputLabel = 'Дата:';
@@ -56,11 +54,16 @@ export class EventComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private service: DataFetcher,
-    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
     this._eventId = this.route.snapshot.paramMap.get('id');
+    if (this._eventId !== '-1' && this._eventId !== null) {
+      this.eventFormName = 'Редактирование события';
+      this.loadEvent();
+    } else {
+      this.eventFormName = 'Создание нового события';
+    }
   }
 
   getUrl(id: string) {
@@ -93,15 +96,16 @@ export class EventComponent implements OnInit {
   }
 
   loadEvent(): void {
-    let eventObject = new EventModel('', '', '', '', '', '', ['', '']);
+    let eventObject = new EventModel('', '', '', '', '', '', '', ['', '']);
     eventObject = eventObject.GetEvent(this._eventId);
-    this.eventForm.patchValue(Object.keys(eventObject));
+    this.patchValue(eventObject);
   }
 
   submit(): void {
     console.log(this.eventForm.value);
 
     const eventObj = new EventModel(
+      this._eventId,
       this.eventForm.controls.eventName.value,
       this.eventForm.controls.eventDescription.value,
       this.eventForm.controls.eventDate.value,
@@ -111,6 +115,7 @@ export class EventComponent implements OnInit {
       this.eventForm.controls.eventMap.value
     );
     eventObj.SaveEvent(this._eventId);
+    this.router.navigateByUrl('/list');
   }
 
   private patchValue(value: { [key: string]: any }, { onlySelf, emitEvent }: { onlySelf?: boolean, emitEvent?: boolean } = {}): void {
@@ -120,15 +125,4 @@ export class EventComponent implements OnInit {
       }
     });
   }
-
-
-  // get eventPhotoRef() {return this.eventForm.get('eventPhotoRef')}
-}
-
-@Component({
-  selector: 'dialog-image-data',
-  templateUrl: 'dialog-image-data.html',
-})
-export class DialogImageData {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 }
