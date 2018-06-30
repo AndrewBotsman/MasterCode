@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-places',
@@ -13,14 +13,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlacesComponent implements OnInit {
   // initial center position for the map
-  private lat: number = 49.988358;
-  private lng: number = 36.232845;
+  private _lat = 49.988358;
+  private _lng = 36.232845;
+  initialLat = 49.988358;
+  initialLng = 36.232845;
 
-  storedLat: number;
-  storedLng: number;
+  @Input() inputCoords: Array<string>;
+  @Output() OutputCoords = [this.storedLat, this.storedLng];
+
+  public get storedLat() {
+    return this._lat;
+  }
+  public set storedLat(lat: number) {
+    this._lat = lat;
+  }
+
+  public get storedLng() {
+    return this._lng;
+  }
+  public set storedLng(lng: number) {
+    this._lng = lng;
+  }
 
   // google maps zoom level
-  zoom: number = 8;
+  // zoom: number = 8;
 
   constructor() { }
 
@@ -35,7 +51,7 @@ export class PlacesComponent implements OnInit {
   mapClicked($event: MouseEvent) {
     console.log($event);
 
-    this.storedLat = $event.coords.lat;
-    this.storedLng = $event.coords.lat;
+    this._lng = $event.coords.lat;
+    this._lng = $event.coords.lat;
   }
 }

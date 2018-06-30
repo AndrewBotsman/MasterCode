@@ -1,16 +1,28 @@
 <input placeholder="{{searchName}}">
-<mat-table [dataSource]="dataSource">
+<mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="eventName">
-        <mat-header-cell *matHeaderCellDef>{{eventName}}</mat-header-cell>
-        <mat-cell *matCellDef="let event">Test eventName</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{eventColumnName}}</mat-header-cell>
+        <mat-cell *matCellDef="let event">{{event.eventName}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="eventDate">
-        <mat-header-cell *matHeaderCellDef>{{eventDateName}}</mat-header-cell>
-        <mat-cell *matCellDef="let event">Test eventDate</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{eventDateColumnName}}</mat-header-cell>
+        <mat-cell *matCellDef="let event">{{event.eventDate}} Test eventDate</mat-cell>
+        <!-- <button mat-button *matCellDef="let id" (click)="removeEvent(id)">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button class="btn btn-primary" [routerLink]="['/event:id']">Delete</button> -->
+    </ng-container>
+    <ng-container matColumnDef="actionsColumn">
+        <mat-header-cell *matHeaderCellDef>
+
+        </mat-header-cell>
+        <mat-cell *matCellDef="let event; let id">
+            <button class="btn btn-primary" [routerLink]="['/event:id']">Delete</button>
+        </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    
+
 </mat-table>
 <div *ngIf="empty">No results</div>
 <br>

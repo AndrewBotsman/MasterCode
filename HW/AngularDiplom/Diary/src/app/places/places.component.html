@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
-    <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-map [latitude]="storedLat" [longitude]="storedLng" (mapClick)="mapClicked($event)">
+      <agm-marker [latitude]="storedLat" [longitude]="storedLng"></agm-marker>
+      <!-- <agm-marker [latitude]="storedLat - 1" [longitude]="storedLng - 1"></agm-marker> -->
     </agm-map>
     <!-- <agm-map style="height: 300px" [latitude]="51.673858" [longitude]="7.815982">
       <agm-marker-cluster [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'">

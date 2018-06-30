@@ -17,6 +17,7 @@ export class DataFetcher {
         console.log(key, value);
         items.push(value);
       }
+      return items;
     } catch (e) {
       console.error('Error enumarating data from localStorage', e);
       return null;
@@ -37,6 +38,14 @@ export class DataFetcher {
     } catch (e) {
       console.error('Error getting data from localStorage', e);
       return null;
+    }
+  }
+
+  public removeEvent(key: string): void {
+    try {
+      localStorage.removeItem(key);
+    } catch (e) {
+      console.error('Error removing from localStorage', e);
     }
   }
 

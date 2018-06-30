@@ -1,45 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataFetcher } from '../data-fetcher.service';
+import { MatSort } from '@angular/material';
+import { EventComponent } from '../event/event.component';
 
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.css']
 })
+
 export class EventListComponent implements OnInit {
 
-  eventName = 'Название события';
-  eventDateName = 'Дата';
+  eventColumnName = 'Название события';
+  eventDateColumnName = 'Дата';
   searchName = 'Поиск';
-  clearEventsbuttonName = "Удалить все события";
-
+  clearEventsbuttonName = 'Удалить все события';
   empty: Boolean = true;
-
   dataSource: any = [];
-    // [{
-    //   'eventId': '1',
-    //   'eventName': 'TestEvent',
-    //   'eventDate': '27.06.2018'
-    // },
-    // {
-    //   'eventId': '2',
-    //   'eventName': 'TestEvent2',
-    //   'eventDate': '27.06.2018'
-    // }];
-
   displayedColumns = ['eventName', 'eventDate'];
+
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private _dataFetcherService: DataFetcher) {
     this.dataSource = _dataFetcherService.getAllEvents();
-    this.empty = this.dataSource == undefined; //&& this.dataSource.map(d => d.length === 0).startWith(false);
+    this.empty = this.dataSource === undefined;
   }
 
   ngOnInit() {
     console.log(this.dataSource);
-    console.log(this.empty);
+    // console.log(this.empty);
   }
 
-  removeEvents(): void{
+  removeEvents(): void {
     this._dataFetcherService.clearEvents();
+  }
+
+  removeEvent(id: string) {
+    this._dataFetcherService.removeEvent(id);
+  }
+
+  editEvent(id: string) {
+    const eventObject = this._dataFetcherService.getEvent(id);
+
+    eventObject.loadEvent(id);
   }
 }
