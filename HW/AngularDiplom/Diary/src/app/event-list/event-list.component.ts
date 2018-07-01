@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { DataFetcher } from '../data-fetcher.service';
-import { MatSort } from '@angular/material';
+import { MatSort, MatTableDataSource } from '@angular/material';
+import { EventModel } from '../event-model';
 
 @Component({
   selector: 'app-event-list',
@@ -8,7 +9,7 @@ import { MatSort } from '@angular/material';
   styleUrls: ['./event-list.component.css']
 })
 
-export class EventListComponent implements OnInit {
+export class EventListComponent implements OnInit, AfterViewInit {
 
   eventColumnName = 'Название события';
   eventDateColumnName = 'Дата';
@@ -19,32 +20,43 @@ export class EventListComponent implements OnInit {
 
   empty: Boolean = true;
   changed: Boolean = false;
-  dataSource = [];
+  eventArray = [];
+  dataSource: any;
   displayedColumns = ['eventName', 'eventDate', 'editButton', 'removeButton'];
 
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private _dataFetcherService: DataFetcher) {
-    this.dataSource = _dataFetcherService.getAllEvents();
-    this.empty = this.dataSource === undefined;
+    this.eventArray = _dataFetcherService.getAllEvents();
+    this.dataSource = new MatTableDataSource(this.eventArray);
+    this.dataSource.filterPredicate = (data: EventModel, filter: string) => data.eventName.indexOf(filter) !== -1;
+    this.empty = this.eventArray === undefined;
   }
 
   ngOnInit() {
-    console.log(this.dataSource);
-    // console.log(this.empty);
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
 
   removeEvents(): void {
     this._dataFetcherService.clearEvents();
-    // this.router.navigateByUrl('/list');
-    // .splice(x, 1);
-    this.dataSource = [];
+    this.eventArray = [];
+    this.dataSource = new MatTableDataSource(this.eventArray);
     this.empty = true;
   }
 
   removeEvent(id: string) {
     this._dataFetcherService.removeEvent(id);
     this._deleteRow(id);
+    this.empty = this.eventArray.length === 0;
   }
 
   editEvent(id: string) {
@@ -53,11 +65,11 @@ export class EventListComponent implements OnInit {
   }
 
   private _deleteRow(id) {
-    for (let i = 0; i < this.dataSource.length; ++i) {
-      if (this.dataSource[i].eventId === id) {
-        this.dataSource.splice(i, 1);
-        const cloned = this.dataSource.map(x => Object.assign({}, x));
-        this.dataSource = cloned;
+    for (let i = 0; i < this.eventArray.length; ++i) {
+      if (this.eventArray[i].eventId === id) {
+        this.eventArray.splice(i, 1);
+        const cloned = this.eventArray.map(x => Object.assign({}, x));
+        this.dataSource = new MatTableDataSource(cloned);
         break;
       }
     }

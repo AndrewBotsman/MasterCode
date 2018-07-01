@@ -1,4 +1,4 @@
-<input placeholder="{{searchName}}">
+<input matInput type="text" placeholder="{{searchName}}" (keyup)="applyFilter($event.target.value)">
 <mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="eventName">
         <mat-header-cell *matHeaderCellDef mat-sort-header>{{eventColumnName}}</mat-header-cell>

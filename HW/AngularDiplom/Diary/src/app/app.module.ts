@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MatIconModule, MatTableModule, MatSortModule, MatDialogModule, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { MatIconModule, MatTableModule, MatSortModule, MatDialogModule } from '@angular/material';
 import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +31,7 @@ import { DialogComponent } from './dialog/dialog.component';
     routes,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAQbAs-8MT-IqrBoviM2v4yDd0i6RXtqh0'
-    }),
+    })
   ],
   providers: [DataFetcher],
   bootstrap: [AppComponent]

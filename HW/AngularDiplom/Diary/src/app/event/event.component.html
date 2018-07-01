@@ -90,7 +90,7 @@
     <div class="panel-body">
       <div class="form-group">
         <label for="eventName">{{eventNameLabel}}</label>
-        <input id="eventName" class="form-control" formControlName="eventName">
+        <input id="eventName" class="form-control" formControlName="eventName" required minlength="4">
       </div>
 
       <div class="form-group">
@@ -99,7 +99,7 @@
       </div>
       <div class="form-group">
         <label for="eventDate">{{eventDateInputLabel}}</label>
-        <input id="eventDate" type="date" class="form-control" formControlName="eventDate">
+        <input id="eventDate" type="date" class="form-control" formControlName="eventDate" required>
       </div>
       <div class="form-group">
         <div>

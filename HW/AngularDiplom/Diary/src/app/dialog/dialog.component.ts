@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, style, animate, transition } from '@angular/animations';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dialog',
@@ -17,16 +18,28 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ])
   ]
 })
-export class DialogComponent implements OnInit {
+export class DialogComponent implements OnInit, OnChanges {
   @Input() closable = true;
   @Input() visible: boolean;
   @Input() url: string;
   @Input() type: string;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() { }
+  isYoutube: Boolean = false;
+  constructor(private _sanuzator: DomSanitizer) { }
 
-  ngOnInit() { }
+  ngOnChanges() {
+    this.isYoutube = this.url.indexOf('youtube') > 0;
+  }
+
+  youtubeUrl() {
+    const url = this._sanuzator.bypassSecurityTrustResourceUrl(this.url);
+    console.log(url);
+    return url;
+  }
+
+  ngOnInit() {
+  }
 
   close() {
     this.visible = false;
