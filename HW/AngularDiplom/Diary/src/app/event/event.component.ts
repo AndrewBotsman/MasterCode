@@ -24,8 +24,7 @@ export class EventComponent implements OnInit {
     eventDate: new FormControl(),
     eventOpinion: new FormControl(),
     eventPhotoRef: new FormControl(),
-    eventVideoRef: new FormControl(),
-    eventMap: new FormControl(),
+    eventVideoRef: new FormControl()
   });
 
   eventNameInputPlaceholder = 'Название события';
@@ -42,13 +41,17 @@ export class EventComponent implements OnInit {
   eventShowButtonName = 'Показать';
   eventMapAreaLabel = 'Места:';
   eventSubmitButtonName = 'Сохранить';
+
   inputCoords: Array<string>;
-  lat: number = 49.988358;
-  lng: number = 36.232845;
+  outputCoords: Array<string>;
+  displayType: string;
+  // lat = '49.988358';
+  // lng = '36.232845';
   showDialog = false;
   eventRef = '';
   type = '';
   private _eventId = '-1';
+  private _mappedCoords = ['', ''];
 
   constructor(
     private route: ActivatedRoute,
@@ -64,6 +67,7 @@ export class EventComponent implements OnInit {
     } else {
       this.eventFormName = 'Создание нового события';
     }
+    this.displayType = 'single';
   }
 
   getUrl(id: string) {
@@ -76,6 +80,7 @@ export class EventComponent implements OnInit {
       this.eventRef = this.eventForm.controls.eventVideoRef.value;
     }
   }
+
   displayDialog(id?: string) {
     this.getUrl(id);
     console.log(id);
@@ -83,22 +88,18 @@ export class EventComponent implements OnInit {
 
     this.showDialog = !(this.showDialog);
   }
-  OutputCoords(coords: Array<string>) {
+
+  onCoordsClicked(coords: Array<string>) {
     console.log(coords);
-  }
-
-  showPhoto(): void {
-    console.log('Photo displyed!');
-  }
-
-  showVideo(): void {
-    console.log('Video displyed!');
+    // this._mappedCoords = [this._adaptCoordsValue(coords['lat']), this._adaptCoordsValue(coords['lng'])];
+    this._mappedCoords = [coords['lat'], coords['lng']];
   }
 
   loadEvent(): void {
     let eventObject = new EventModel('', '', '', '', '', '', '', ['', '']);
     eventObject = eventObject.GetEvent(this._eventId);
     this.patchValue(eventObject);
+    this.inputCoords = eventObject.eventMap;
   }
 
   submit(): void {
@@ -112,7 +113,7 @@ export class EventComponent implements OnInit {
       this.eventForm.controls.eventOpinion.value,
       this.eventForm.controls.eventPhotoRef.value,
       this.eventForm.controls.eventVideoRef.value,
-      this.eventForm.controls.eventMap.value
+      this._mappedCoords
     );
     eventObj.SaveEvent(this._eventId);
     this.router.navigateByUrl('/list');

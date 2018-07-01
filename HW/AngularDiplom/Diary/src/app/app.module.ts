@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { MatIconModule, MatTableModule, MatSortModule, MatDialogModule, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { AgmCoreModule } from '@agm/core';
@@ -12,12 +11,6 @@ import { EventComponent } from './event/event.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { PlacesComponent } from './places/places.component';
 import { DialogComponent } from './dialog/dialog.component';
-// import { AgmCoreModule } from 'angular2-google-maps/core';
-// import { GOOGLE_MAPS_PROVIDERS } from 'angular2-google-map/core';
-
-// const googleMapsCore = AgmCoreModule.forRoot({
-//   apiKey: 'AIzaSyAQbAs-8MT-IqrBoviM2v4yDd0i6RXtqh0',
-// });
 
 @NgModule({
   declarations: [
@@ -29,16 +22,16 @@ import { DialogComponent } from './dialog/dialog.component';
   ],
   imports: [
     BrowserModule,
-    routes,
     BrowserAnimationsModule,
     MatSortModule,
     MatTableModule,
     MatIconModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    routes,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAQbAs-8MT-IqrBoviM2v4yDd0i6RXtqh0'
     }),
-    ReactiveFormsModule,
-    MatDialogModule
   ],
   providers: [DataFetcher],
   bootstrap: [AppComponent]

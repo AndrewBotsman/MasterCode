@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataFetcher } from '../data-fetcher.service';
 import { MatSort } from '@angular/material';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-list',
