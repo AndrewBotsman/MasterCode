@@ -1,0 +1,7 @@
+1. Refactor storing approach form local storage to service (e.g. .NET or exist service in internet) and include rx.js
+	(*) https://github.com/RxJS-CN/angular-rxjs-todos
+	(*) https://www.mockapi.io/projects
+2. Add validation to controls
+3. Error handling
+4. Add spinner
+5. Research possibility to use https://angular.io/api/router/Event
